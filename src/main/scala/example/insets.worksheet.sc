@@ -3,7 +3,7 @@ abstract class IntSet:
 
   def include(x: Int): IntSet
 
-  def union(x: Int): IntSet
+  def union(s: IntSet): IntSet
 
 /**
  *
@@ -14,7 +14,7 @@ class Empty() extends IntSet :
   def include(x: Int): IntSet = NonEmpty(x, Empty(), Empty())
 
   def union(s: IntSet): IntSet = s
-  
+
 end Empty
 
 /**
@@ -33,7 +33,7 @@ class NonEmpty(element: Int, left: IntSet, right: IntSet) extends IntSet :
     else if x > element then NonEmpty(element, left, right.include(x))
     else this
 
-  def union(x: Int): IntSet =
-    left.union(right).union(x).include(element)
+  def union(s: IntSet): IntSet =
+    left.union(right).union(s).include(element)
 
 end NonEmpty
