@@ -267,7 +267,7 @@ trait Huffman :
         case Fork(left, right, _, _) =>
           itr(left, result ::: List(0))
           itr(right, result ::: List(1))
-        case Leaf(char, _) => table = table ::: List((char, result)); println(table)
+        case Leaf(char, _) => table = table ::: List((char, result))
 
     itr(tree, List())
     table
